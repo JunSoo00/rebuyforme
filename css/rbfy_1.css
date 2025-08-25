@@ -1,0 +1,536 @@
+@charset "utf-8";
+@import url('all.min.css');
+
+* {box-sizing: border-box;}
+
+body {
+    height: 4000px;
+    font-weight: 400;
+    color: rgba(0,0,0,0.7);
+}
+/* 공통요소 */
+:root {
+    --swiper-theme-color: #040404;
+}
+section + section {
+    padding: 100px 0 50px
+}
+section .innerBox {
+    max-width: 1560px;
+    margin: 0 auto;
+}
+section h2 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 50px;
+    color: #000;
+    text-align: center;
+}
+section ul {
+    display: flex;
+    justify-content: space-between;
+}
+section ul li > div > * {
+    margin-bottom: 10px;
+    text-align: center;
+}
+section ul li figure {
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 30px;
+    background: #F7F7FA;
+}
+section ul li figure > a {
+    display: block;
+    width: 100%; height: 100%;
+}
+section ul li figure a::before {
+    position: absolute;
+    top: 0; left: 0; 
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.1);
+    opacity: 0;
+    content: '';
+    transition: all 0.3s;
+}
+section ul li figure a::after {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px; height: 80px;
+    background: url(../img/ico/icon_cart_hover.png) no-repeat center / cover;
+    z-index: 10;
+    opacity: 0;
+    transition: all 0.2s;
+}
+section ul li figure:hover a::before,
+section ul li figure:hover a::after {
+    opacity: 0.8;
+}
+section ul li figure img {
+    display: block;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; 
+    height: 100%;
+    z-index: 1;
+    transition: all 0.4s;
+    max-width: 100%;
+}
+section ul figure img + img {
+    opacity: 0;
+}
+section ul figure:hover img + img {
+    opacity: 1;
+}
+section .title {
+    font-size: 22px;
+    font-weight: 500;
+    color: #000;
+    margin-bottom: 25px;
+}
+section .bedge {margin-bottom: 15px;}
+section .bedge span {
+    padding: 5px 12px;
+    background: rgba(0,0,0,0.1);
+    font-size: 15px;
+    border-radius: 20px;
+    margin: 0 6px;
+}
+section .ratings {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+section .ratings > * {
+    font-size: 14px;
+}
+section .priceWrap strong {
+    font-weight: 600;
+    font-size: 17px;
+    color: #000;
+    margin: 0 10px;
+}
+
+.btn {
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    width: 200px;
+    height: 56px;
+    line-height: 56px;
+    background: transparent;
+    border: 1px solid #040404;
+    border-radius: 56px;
+    text-align: center;
+}
+.btn span {
+    position: relative;
+    z-index: 2;
+}
+.btn::before {
+    content: '\f054';
+     font-family: "Font Awesome 5 Free";
+     font-weight: 900;
+     position: absolute;
+     top: 0; right: 20px;
+     z-index: 2;
+}
+.btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 0;
+    background: #040404;
+    transition: height 0.4s;
+}
+.btn:hover::before {
+    color: #fff;
+}
+.btn:hover::after {
+    height: 100%;
+}
+.btn:hover span {
+    color: #fff
+}
+
+/* skip_event */
+.skip_event {
+    position: relative;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    color: #eee;
+    font-size: 15px;
+    background: #414141;
+}
+.skip_event .btn_close {
+    position: absolute;
+    top: 5px; right: 30%;
+    background: none;
+    color: rgba(255, 255, 255, 0.655);
+    font-size: 30px;
+    border: none;    
+}
+
+/* header */
+header {
+    padding: 0 60px;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: #fff;
+    border-bottom: 1px solid #d7d7d7;
+}
+header .logo > a {
+    display: block;
+    width: 160px; height: 80px;
+    background: url(../img/logo_black.png) no-repeat center/auto 40px;
+}
+
+/* gnbArea */
+header .gnbArea {
+    width: 60%;
+}
+header .gnbArea .gnb {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+header .gnbArea .gnb > li {
+    position: relative;
+    flex: 1;
+}
+header .gnbArea .gnb > li .title {
+    font-size: 18px;
+    font-weight: 500;
+    color: #000;
+    margin-bottom: 15px;
+}
+header .gnbArea .gnb > li > a {
+    display: block;
+    height: 70px;
+    line-height: 70px;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    color: #000; 
+}
+header .gnbArea .gnb > li.point > a {
+    color: #FF6504;
+}
+header .gnbArea .gnb > li:nth-child(2).point::before {
+    position: absolute;
+    top: 20px; right: 10px;
+    width: 6px; height: 6px;
+    background: #FF6504;
+    border-radius: 50%;
+    content: '';
+}
+header .gnbArea .gnb > li .subMenu {
+    background: #fff;
+    padding: 20px;
+    position: absolute;
+    left: 0; top: 69px;
+    border: 1px solid #d7d7d7;
+    display: none;  /* 처음에는 보이지 않고 li에 마우스가 올라가면 나타남. */
+    z-index: 100;
+}
+
+header .gnbArea .gnb > li .subMenu li > a {
+    /* font: 500 italic 18px/1.8 '맑은 고딕';   */
+    /* font: font-weight(생략가능) font-style(생략가능) font-size(필수)/line-height(생략가능) font-family(필수) */
+    display: block;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.8;
+    padding: 3px 10px;
+    width: max-content
+}
+header .gnbArea .gnb > li .subMenuAll {   
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    display: none;
+}
+
+header .gnbArea .gnb > li:hover .subMenu,
+ header .gnbArea .gnb > li:hover .subMenuAll{
+    display: flex;
+} 
+
+header .gnbArea .gnb > li .subMenuAll > ul {
+    /* 
+        max-content: 줄바꿈없이 내용을 다 한줄에 보여줌. 
+        fit-content: 내용을 보여주되 100px 이내로
+        min-content: 줄바꿈이 가능한 가장 좁은 너비
+     */
+    width: max-content;  
+}
+header .util_nav {
+    display: flex;
+    justify-content: flex-end; /* 부모 요소의 오른쪽 끝을 기준으로 정렬 */
+    gap: 20px;
+}
+header .util_nav > a > img {
+    width: 44px
+}
+
+/* mainViusual - swiper */
+.swiper-wrapper {
+    height: 750px;
+}
+.swiper .swiper-slide {
+    position: relative;
+    height: 100%;
+    background: no-repeat center/cover;
+}
+.swiper .swiper-slide.bg01 {
+    background-image: url(../img/bnr1.jpg);
+}
+.swiper .swiper-slide.bg02 {
+    background-image: url(../img/bnr2.jpg);
+}
+.swiper .swiper-slide.bg03 {
+    background-image: url(../img/bnr5.jpg);
+}
+.swiper .swiper-slide .slideText {
+    position: absolute;
+    top: 50%; left: 60%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+.swiper-slide .slideText em {
+    display: block;
+    font-size: 24px;
+    margin-bottom: 18px;
+    color: #040404;
+}
+.swiper-slide .slideText strong {
+    display: block;
+    font-size: 44px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    color: #040404;    
+}
+.swiper-slide .slideText p {
+    color: #040404;
+    font-size: 17px;
+    font-weight: 300;
+    margin-bottom: 50px;
+}
+
+.swiper.benefit {
+    padding-bottom: 50px;
+}
+.custom-pagination {
+  position: absolute;
+  bottom: 0;
+  /* left: 10px;
+  right: 10px; */
+  left: 50%;
+  transform: translateX(-50%);  
+  width: 300px; height: 4px;
+  background: #b8b8b8;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.custom-bar {
+  height: 100%;
+  width: 0%;
+  background: #333;
+  transition: width 0.3s;
+}
+
+
+
+/* specialArea */
+#specialArea .setList {
+    gap: 20px;
+}
+#specialArea .setList li {
+    width: calc(100%/5 - 20px);
+}
+#specialArea .setList li figure {
+    height: 260px;
+}
+
+/* bestItemArea */
+#bestItemArea ul {    
+    gap: 30px;
+}
+#bestItemArea ul li {
+    width: calc(100%/4 - 30px);
+}
+#bestItemArea ul li figure {
+    height: 367px;
+}
+
+/* benefitArea */
+#benefitArea .benefit .swiper-slide {
+    width: 100%;
+    height: 760px;
+    background: no-repeat center/cover;
+}
+.swiper-horizontal>.swiper-pagination-progressbar, .swiper-pagination-progressbar.swiper-pagination-horizontal, .swiper-pagination-progressbar.swiper-pagination-vertical.swiper-pagination-progressbar-opposite, .swiper-vertical>.swiper-pagination-progressbar.swiper-pagination-progressbar-opposite {
+    position: absolute;
+    top: auto;
+    bottom: 30px; left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    background: #fff;
+}
+.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+    background: #000000;
+}
+#benefitArea .benefit .swiper-slide.bg01 {
+    background-image: url(../img/bnr1.jpg);
+}
+#benefitArea .benefit .swiper-slide.bg02 {
+    background-image: url(../img/bnr3.jpg);
+}
+#benefitArea .benefit .tagArea {margin-bottom: 30px;}
+#benefitArea .benefit .tagArea span {
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid #040404;
+    border-radius: 20px;
+    font-size: 15px;
+}
+#benefitArea .benefit p {
+    font-size: 26px;
+    line-height: 1.4;
+}
+
+/* recomArea */
+#recomArea .recomWrap {
+    display: flex;
+    justify-content: space-between;
+}
+#recomArea .recomWrap .left {
+    width: 20%;
+}
+#recomArea .recomWrap .left h2 {
+    text-align: left;
+}
+#recomArea .recomWrap .left .tabMenu {
+    flex-direction: column;
+}
+#recomArea .recomWrap .left .tabMenu > li {
+    margin-bottom: 30px;
+}
+#recomArea .recomWrap .left .tabMenu > li > a {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 24px;
+    color: rgba(0,0,0,0.2);
+    transition: all 0.3s;
+}
+#recomArea .recomWrap .left .tabMenu > li.on a,
+#recomArea .recomWrap .left .tabMenu > li a:hover {
+    color: #000;
+}
+#recomArea .recomWrap .left .btn.btnView {
+    position: relative;
+    display: inline-block;
+    padding: 0 40px 5px 15px;
+    width: auto;
+    margin-top: 60px;
+    border-width: 0 0 2px 0;
+    color: #000;
+    border-radius: 0;
+}
+#recomArea .recomWrap .right {
+    width: 80%
+}
+#recomArea .recomWrap .right ul {
+    justify-content: flex-start;
+    gap: 30px;
+}
+#recomArea .recomWrap .right ul li {
+    width: calc(100%/3);
+}
+#recomArea .recomWrap .right ul li figure {
+    height: 360px;
+}
+#recomArea .right .recomItemList {
+    display: none;
+}
+#recomArea .right .recomItemList.on {
+    display: flex;
+}
+
+/* reviewItem */
+#reviewItem ul {
+    gap: 15px;
+}
+#reviewItem ul li {
+    width: calc(100%/4 - 15px);
+}
+#reviewItem ul li > a {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    width: 100%;
+    height: 560px;
+}
+#reviewItem ul li > a::before {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; 
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    content: '';
+    z-index: 2;
+}
+#reviewItem ul li > a > img {
+    max-width: 100%;
+    transition: all 0.4s;
+}
+#reviewItem ul li > a:hover img {
+    transform: scale(1.1);
+}
+#reviewItem ul li .textWrap {
+    position: absolute;
+    top: 30px; left: 30px;
+    color: #fff;
+    z-index: 4;
+}
+#reviewItem ul li .textWrap .title {
+    color: #fff
+}
+#reviewItem ul li .textWrap .text {
+    font-size: 20px;
+    line-height: 1.6;
+}
+#reviewItem ul li .textWrap .writer {
+    font-size: 15px;
+    margin-top: 40px;
+}
+#reviewItem ul li .btn {
+    position: absolute;
+    bottom: 50px; left: 50%;
+    transform: translateX(-50%);
+    width: 160px;
+    border-color: white;
+    z-index: 5;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+#reviewItem ul li .btn span {
+    color: #fff;
+}
+#reviewItem ul li:hover .btn {
+    opacity: 1;
+}
+#reviewItem ul li:hover .btn > span {
+    color: #000
+}
+#reviewItem ul li:hover .btn::after {
+    background: #fff;
+}
