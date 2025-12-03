@@ -9,12 +9,12 @@
 
 <br>
 
-## Live Demo
-🖥️ 배포 링크 : (https://junsoo00.github.io/rebuyforme/)
+## 🖥️ Live Demo
+ 🔗 배포 링크 : (https://junsoo00.github.io/rebuyforme/)
 
 <br>
 
-## Featuers
+## ✨ Featuers
  - 메인페이지 및 서프페이지(브랜드-스토리) 레이아웃 구현
  - swiper 및 swiper 커스터마이징
  - 이벤트베너 애니메이션 및 hover 애니메이션
@@ -22,7 +22,7 @@
 
 <br>
 
-## Development Notes
+## 📒 Development Notes
 
 ### _1) Main page_
 - 이벤트 배너, 제품 및 아이콘 hover 애니메이션을 통해 사용자가 콘텐츠에 자연스럽게 집중하도록 시각적 몰입도를 강화했습니다.
@@ -37,7 +37,7 @@
 
 <br>
 
-## More Information 
+## 🔍 More Information 
 [Velog](https://velog.io/@juns00/%EC%9E%91%EC%97%85%EC%9D%BC%EC%A7%80-01.-rbfy-%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EB%B0%B0%EB%84%88)
 
 [Portfolio](https://junsoo00.github.io/portfolio/)
